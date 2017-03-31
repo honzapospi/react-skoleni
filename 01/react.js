@@ -33,7 +33,7 @@ class Menu extends React.Component {
     }
 }
 
-class NewRemindForm extends React.Component {
+class RemindForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {

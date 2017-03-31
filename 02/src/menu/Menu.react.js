@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import {Link} from 'react-router';
 
 
 export default class Menu extends React.Component {
@@ -9,9 +9,8 @@ export default class Menu extends React.Component {
         this.state = {
             active: 1,
             items: [
-                {id: 1, name: 'Home'},
-                {id: 2, name: 'About us'},
-                {id: 3, name: 'Contact'}
+                {id: 1, name: 'List', path: '/'},
+                {id: 2, name: 'New', path: '/new/'}
             ]
         };
     }
@@ -23,9 +22,7 @@ export default class Menu extends React.Component {
     renderItems(){
         return this.state.items.map((item) => {
             var cname = this.state.active == item.id ? 'active' : 'noactive';
-            return (<li onClick={() => {
-                this.handleOnClickItem(item.id)
-            }} className={cname} key={item.id}>{item.name}</li>);
+            return (<li key={item.id}><Link to={item.path}>{item.name}</Link></li>);
         });
     }
 
